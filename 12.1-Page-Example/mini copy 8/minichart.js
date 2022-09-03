@@ -100,12 +100,17 @@ ticker_symbol_0_Array.forEach(async function (ticker_symbol, index) {
 
   lenghtAllStockObject = Object.keys(allStockObject);
   if (lenghtAllStockObject.length === ticker_symbol_0_Array.length) {
-    //console.log(lenghtAllStockObject.length,'XXXX',ticker_symbol_0_Array.length);
+    console.log(lenghtAllStockObject.length,'XXXX',ticker_symbol_0_Array.length);
+
+    // Convertir objeto a json
+    convertToJson(allStockObject);
+    //console.log(dataCharts);
+
+    //Crear archivo
+    createJSONFile(dataCharts);
 
     // Inicio de creacion de charts
-    convertToJson(allStockObject);
-    console.log(dataCharts);
-    createCharts(dataCharts);
+    //createCharts(dataCharts);
   }
 });
 
@@ -195,6 +200,29 @@ function convertToJson(objs) {
 }
 
 /** CREAR UN ARCHIVO JSON Y ACTUALIZARLO PARA QUE MUESTRE LA DATA. */
+function createJSONFile(jsonData){
+  fileName='jsonchartdata';
+  console.log(jsonData,'json data a convertir');
+  
+    const a = document.createElement("a");
+    console.log(a,'json data a convertir');
+
+    const file = new Blob([jsonData], { type: 'application/json' });
+    console.log(file,'File');
+    // Crea una URL TODO: Descomentar.
+    //const url = URL.createObjectURL(file);
+    const url = './data.json'
+    console.log(url,'url');
+    a.href = url;
+    console.log(a,a.href);
+    a.download = fileName;
+    a.click();
+    //console.log(a.href,'<= a.href',a.download,'<= a.download',a.click(),'<= a.click');
+    URL.revokeObjectURL(url);
+
+};
+/** CREAR UN ARCHIVO JSON Y ACTUALIZARLO PARA QUE MUESTRE LA DATA. */
+
 
 function createCharts(json) {
   console.log(json,'JSON');
@@ -444,3 +472,8 @@ function sortTextVal(a, b) {
 
   return 0;
 }
+
+// iframe
+// webcomponent, agnosticos, Generar una libreria, Postear en un CDN
+
+// Servicio AW2wS3
