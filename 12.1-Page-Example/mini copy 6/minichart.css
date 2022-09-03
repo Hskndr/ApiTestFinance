@@ -1,0 +1,76 @@
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+  #main-container {
+    /* background: yellow; */
+  }
+}
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) {
+  #main-container {
+    /* background: blue; */
+  }
+  .table-container {
+    margin: 0;
+  }
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {
+  #main-container {
+    /* background: red; */
+  }
+  .table-container {
+    margin: 0 1rem 0 1rem;
+  }
+}
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+  #main-container {
+    /* background: green; */
+  }
+}
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {
+  #main-container {
+    /* background: magenta; */
+  }
+}
+
+/* General */
+#main-container {
+  font-size: 14px;
+  font-family:Arial, Helvetica, sans-serif;
+}
+
+.table-container {
+  margin: 0 3rem 0 3rem;
+  /*font-family: "Trebuchet MS", Verdana, sans-serif;*/
+}
+
+table{
+  border-color: antiquewhite;
+}
+td,tr{
+  vertical-align:middle;
+}
+th a {
+  text-decoration: none;
+  color: black;
+}
+
+th a:hover {
+  color: gray;
+}
+.chart {
+  height: 3rem;
+  width: 8rem;
+}
+
+tbody img {
+  height: 3rem;
+  width: 3rem;
+  border-radius: 1.5rem;
+}

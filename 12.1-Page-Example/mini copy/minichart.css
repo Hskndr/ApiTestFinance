@@ -1,0 +1,20 @@
+th a{
+  text-decoration: none;
+  color: black;
+}
+
+th a:hover {
+  color: gray;
+}
+.chart {
+  height: 3rem;
+  width: 8rem;
+}
+
+
+tbody img{
+  height: 3rem;
+  width: 3rem;
+  border-radius: 1.5rem;
+}
+

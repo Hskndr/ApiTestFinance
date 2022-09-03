@@ -1,0 +1,230 @@
+{
+  "1": {
+    "market_cap": 196.09,
+    "logo": "https://companiesmarketcap.com/img/company-logos/64/MCD.webp",
+    "name": "McDonald",
+    "price": 266.54,
+    "today": 0.01,
+    "price_monthly": [
+      8.3,
+      8.4,
+      8.2,
+      8.2,
+      8.4,
+      8.2,
+      8.4,
+      8.2,
+      8.7
+    ],
+    "price_daily": [
+      100,
+      101,
+      98.8,
+      98.8,
+      101,
+      98.8,
+      101,
+      98.8,
+      104
+    ],
+    "country_name": "USA-1",
+    "country_flag": "https://w7.pngwing.com/pngs/615/195/png-transparent-flag-of-the-united-states-2018-mini-cooper-decal-sticker-us-flag-flag-label-text-thumbnail.png"
+  },
+  "2": {
+    "market_cap": 296.09,
+    "logo": "https://companiesmarketcap.com/img/company-logos/64/CMG.webp",
+    "name": "Chipotle Mexican Grill",
+    "price": 366.54,
+    "today": 0.11,
+    "price_monthly": [
+      9.3,
+      8.4,
+      4.2,
+      8.2,
+      8.4,
+      8.2,
+      8.4,
+      8.2,
+      8.7
+    ],
+    "price_daily": [
+      100,
+      101,
+      98.8,
+      95.8,
+      101,
+      98.8,
+      101,
+      98.8,
+      104
+    ],
+    "country_name": "USA-2",
+    "country_flag": "https://w7.pngwing.com/pngs/615/195/png-transparent-flag-of-the-united-states-2018-mini-cooper-decal-sticker-us-flag-flag-label-text-thumbnail.png"
+  },
+  "3": {
+    "market_cap": 186.09,
+    "logo": "https://companiesmarketcap.com/img/company-logos/64/YUM.webp",
+    "name": "Yumi Brands",
+    "price": 266.54,
+    "today": 0.01,
+    "price_monthly": [
+      8.3,
+      8.4,
+      8.2,
+      8.2,
+      8.4,
+      8.2,
+      8.4,
+      8.2,
+      8.7
+    ],
+    "price_daily": [
+      100,
+      101,
+      98.8,
+      98.8,
+      101,
+      98.8,
+      101,
+      98.8,
+      104
+    ],
+    "country_name": "USA-3",
+    "country_flag": "https://w7.pngwing.com/pngs/615/195/png-transparent-flag-of-the-united-states-2018-mini-cooper-decal-sticker-us-flag-flag-label-text-thumbnail.png"
+  },
+  "4": {
+    "market_cap": 126.09,
+    "logo": "https://companiesmarketcap.com/img/company-logos/64/QSR.webp",
+    "name": "Restaurant Brands International",
+    "price": 366.54,
+    "today": 1.01,
+    "price_monthly": [
+      8.3,
+      8.4,
+      8.2,
+      8.2,
+      8.4,
+      8.2,
+      8.4,
+      8.2,
+      8.7
+    ],
+    "price_daily": [
+      100,
+      101,
+      98.8,
+      98.8,
+      101,
+      118.8,
+      101,
+      98.8,
+      104
+    ],
+    "country_name": "USA-4",
+    "country_flag": "https://w7.pngwing.com/pngs/615/195/png-transparent-flag-of-the-united-states-2018-mini-cooper-decal-sticker-us-flag-flag-label-text-thumbnail.png"
+  },
+  "5": {
+    "market_cap": 191.09,
+    "logo": "https://companiesmarketcap.com/img/company-logos/64/DRI.webp",
+    "name": "Darden Restaurants",
+    "price": 276.54,
+    "today": 3.01,
+    "price_monthly": [
+      8.3,
+      8.4,
+      8.2,
+      8.2,
+      8.4,
+      8.2,
+      8.4,
+      8.2,
+      8.7
+    ],
+    "price_daily": [
+      100,
+      101,
+      98.8,
+      98.8,
+      131,
+      98.8,
+      101,
+      98.8,
+      104
+    ],
+    "country_name": "USA-5",
+    "country_flag": "https://w7.pngwing.com/pngs/615/195/png-transparent-flag-of-the-united-states-2018-mini-cooper-decal-sticker-us-flag-flag-label-text-thumbnail.png"
+  },
+  "6": {
+    "market_cap": 496.09,
+    "logo": "https://companiesmarketcap.com/img/company-logos/64/DPZ.webp",
+    "name": "Dominos's Pizza",
+    "price": 296.54,
+    "today": 3.01,
+    "price_monthly": [
+      8.3,
+      8.4,
+      8.2,
+      8.2,
+      8.4,
+      8.2,
+      8.4,
+      8.2,
+      8.7
+    ],
+    "price_daily": [
+      100,
+      101,
+      98.8,
+      98.8,
+      101,
+      98.8,
+      101,
+      28.8,
+      104
+    ],
+    "country_name": "USA-6",
+    "country_flag": "https://w7.pngwing.com/pngs/615/195/png-transparent-flag-of-the-united-states-2018-mini-cooper-decal-sticker-us-flag-flag-label-text-thumbnail.png"
+  },
+  "7": {
+    "market_cap": 96.09,
+    "logo": "https://companiesmarketcap.com/img/company-logos/64/6862.HK.webp",
+    "name": "Hai Di Lao Hot Pot",
+    "price": 66.54,
+    "today": 0.50,
+    "price_monthly": [
+      9.3,
+      8.4,
+      8.2,
+      8.2,
+      8.4,
+      8.2,
+      8.4,
+      8.2,
+      8.7
+    ],
+    "price_daily": [
+      100,
+      101,
+      98.8,
+      38.8,
+      101,
+      98.8,
+      101,
+      98.8,
+      104
+    ],
+    "country_name": "USA-7",
+    "country_flag": "https://w7.pngwing.com/pngs/615/195/png-transparent-flag-of-the-united-states-2018-mini-cooper-decal-sticker-us-flag-flag-label-text-thumbnail.png"
+  },
+  {
+    "S3": {
+      "market_cap": 1,
+      "name_company": 4,
+      "price": "et porro tempora",
+      "today": true,
+      "price_daily": "et porro tempora",
+      "price_monthly": "et porro tempora",
+      "country_name": "et porro tempora"
+    }
+  }
+}
