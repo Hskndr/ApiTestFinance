@@ -33,11 +33,11 @@ ticker_symbol_0_Array = [
     */
 
   // API REAL
-  
+
   ["MCD", "NYSE"],
   ["SBUX", "NASDAQ"],
   ["CMG", "NYSE"],
-  /*["YUM", "NYSE"],
+  ["YUM", "NYSE"],
   ["QSR", "NYSE"],
   ["YUMC", "NYSE"],
   ["DRI", "NYSE"],
@@ -83,7 +83,7 @@ ticker_symbol_0_Array = [
   ["BDL", "NYSEAMERICAN"],
   ["GTIM", "NASDAQ"],
   ["RAVE", "NASDAQ"],
-  ["GRIL", "NASDAQ"],*/
+  ["GRIL", "NASDAQ"],
 ];
 
 /* Datos para la conexion con la API */
@@ -95,8 +95,8 @@ const options = {
     //TODO: Remover para uso de la API Real  "X-RapidAPI-Host": "google-finance4.p.rapidapi.com",
 
     // Correo Hskndr477@gmail.com Inicio el 04/09/22
-    'X-RapidAPI-Key': 'dfb97cccb1mshcab013048aceec7p187dbajsn1dfbc3b89e80',
-		'X-RapidAPI-Host': 'google-finance4.p.rapidapi.com'
+    "X-RapidAPI-Key": "dfb97cccb1mshcab013048aceec7p187dbajsn1dfbc3b89e80",
+    "X-RapidAPI-Host": "google-finance4.p.rapidapi.com",
   },
 };
 
@@ -105,32 +105,33 @@ allStockObject = {};
 
 /* Recorrer ticker_symbol_0_Array y crear las url's */
 ticker_symbol_0_Array.forEach(async function (ticker_symbol, index) {
-  // Metodo para retrasar 200ms la llamada a la data de la API
-  setTimeout(
+  // Metodo para retrasar 200ms la llamada a la data de la API src https://travishorn.com/delaying-foreach-iterations-2ebd4b29ad30
+  setTimeout(async function () {
     // Metodo para extraer la data de la API
-    await getUrlStock(ticker_symbol[0], ticker_symbol[1], index),
-    200
-  );
-  // Ver
-  insertObjectToObjOrArray(stockObject, index);
+    await getUrlStock(ticker_symbol[0], ticker_symbol[1], index);
+    console.log("retrasado 200ms", ticker_symbol[0], ticker_symbol[1]);
+    // Ver
+    insertObjectToObjOrArray(stockObject, index);
 
-  //console.log('stockObjectAll',allStockObject);
+    //console.log('stockObjectAll',allStockObject);
 
-  lenghtAllStockObject = Object.keys(allStockObject);
-  if (lenghtAllStockObject.length === ticker_symbol_0_Array.length) {
-    //console.log(lenghtAllStockObject.length,'XXXX',ticker_symbol_0_Array.length);
+    lenghtAllStockObject = Object.keys(allStockObject);
+    if (lenghtAllStockObject.length === ticker_symbol_0_Array.length) {
+      //console.log(lenghtAllStockObject.length,'XXXX',ticker_symbol_0_Array.length);
 
-    // Convertir objeto a json
-    // convertToJson(allStockObject);
-    //console.log(dataCharts);
+      // Convertir objeto a json
+      // convertToJson(allStockObject);
+      //console.log(dataCharts);
+      console.log("ready");
 
-    //Crear archivo
-    //createJSONFile(dataCharts);
+      //Crear archivo
+      //createJSONFile(dataCharts);
 
-    // Inicio de creacion de charts
-    //createCharts(dataCharts);
-    createCharts(allStockObject);
-  }
+      // Inicio de creacion de charts
+      //createCharts(dataCharts);
+      await createCharts(allStockObject);
+    }
+  }, index * 500);
 });
 
 /* Metodo para llamada fetch retorna la respuesta*/
@@ -142,13 +143,14 @@ async function getUrlStock(ticker_symbol_1, ticker_symbol_2, index) {
     //`https://jsonplaceholder.typicode.com/${ticker_symbol_1}/${ticker_symbol_2}`,
 
     // API REAL
-     `https://google-finance4.p.rapidapi.com/ticker/?t=${ticker_symbol_1}%3A${ticker_symbol_2}&hl=en&gl=US`,
+    `https://google-finance4.p.rapidapi.com/ticker/?t=${ticker_symbol_1}%3A${ticker_symbol_2}&hl=en&gl=US`,
 
     options
   )
     .then((response) => response.json())
     .then((response) => {
-      //TODO:EMILINAR console.log(response);
+      //TODO:EMILINAR
+      console.log(response);
       createObject(response, index);
     })
     .catch((err) => console.error(err));
@@ -169,21 +171,24 @@ async function createObject(dataRes, index) {
     country_name = dataRes.title;
   */
   // API REAL
-  
+
   //console.log(dataRes,'DATA__RES');
   let charts1dayArray = [],
-      charts1monthArray = [],
-      charts1day = dataRes.charts['1day'].forEach((resChart)=>{charts1dayArray.push(resChart.price)}),
-      charts1month = dataRes.charts['1month'].forEach((resChart)=>{charts1monthArray.push(resChart.price)});
-  
+    charts1monthArray = [],
+    charts1day = dataRes.charts["1day"].forEach((resChart) => {
+      charts1dayArray.push(resChart.price);
+    }),
+    charts1month = dataRes.charts["1month"].forEach((resChart) => {
+      charts1monthArray.push(resChart.price);
+    });
+
   let market_cap = dataRes.stats.market_cap,
-          name_company = dataRes.about.name,
-          price = dataRes.price.last.value,
-          today = dataRes.price.last.today_change_percent,
-          price_daily = charts1dayArray,
-          price_monthly = charts1monthArray, 
-          country_name = dataRes.about.headquarters.country;
-  
+    name_company = dataRes.about.name,
+    price = dataRes.price.last.value,
+    today = dataRes.price.last.today_change_percent,
+    price_daily = charts1dayArray,
+    price_monthly = charts1monthArray,
+    country_name = dataRes.about.headquarters.country;
 
   // Crear el Objeto stockObject
   stockObject = {};
@@ -247,14 +252,13 @@ function createJSONFile(jsonData){
 urlCDN = 'https://cdn.jsdelivr.net/gh/Hskndr/ApiTestFinance'
 /** CREAR UN ARCHIVO JSON Y ACTUALIZARLO PARA QUE MUESTRE LA DATA. */
 
+/* Creacion de Data SET */
+let dataSET = "./data.json";
+// let dataSET ={"S0":{"market_cap":1,"name_company":1,"price":"delectus aut autem","today":false,"price_daily":"delectus aut autem","price_monthly":"delectus aut autem","country_name":"delectus aut autem"},"S1":{"market_cap":1,"name_company":2,"price":"quis ut nam facilis et officia qui","today":false,"price_daily":"quis ut nam facilis et officia qui","price_monthly":"quis ut nam facilis et officia qui","country_name":"quis ut nam facilis et officia qui"},"S3":{"market_cap":1,"name_company":4,"price":"et porro tempora","today":true,"price_daily":"et porro tempora","price_monthly":"et porro tempora","country_name":"et porro tempora"},"S4":{"market_cap":1,"name_company":5,"price":"laboriosam mollitia et enim quasi adipisci quia provident illum","today":false,"price_daily":"laboriosam mollitia et enim quasi adipisci quia provident illum","price_monthly":"laboriosam mollitia et enim quasi adipisci quia provident illum","country_name":"laboriosam mollitia et enim quasi adipisci quia provident illum"},"S2":{"market_cap":1,"name_company":3,"price":"fugiat veniam minus","today":false,"price_daily":"fugiat veniam minus","price_monthly":"fugiat veniam minus","country_name":"fugiat veniam minus"},"S5":{"market_cap":1,"name_company":6,"price":"qui ullam ratione quibusdam voluptatem quia omnis","today":false,"price_daily":"qui ullam ratione quibusdam voluptatem quia omnis","price_monthly":"qui ullam ratione quibusdam voluptatem quia omnis","country_name":"qui ullam ratione quibusdam voluptatem quia omnis"}};
+//console.log('=>',dataSET);
 
-  /* Creacion de Data SET */
-  let dataSET = "./data.json";
-  // let dataSET ={"S0":{"market_cap":1,"name_company":1,"price":"delectus aut autem","today":false,"price_daily":"delectus aut autem","price_monthly":"delectus aut autem","country_name":"delectus aut autem"},"S1":{"market_cap":1,"name_company":2,"price":"quis ut nam facilis et officia qui","today":false,"price_daily":"quis ut nam facilis et officia qui","price_monthly":"quis ut nam facilis et officia qui","country_name":"quis ut nam facilis et officia qui"},"S3":{"market_cap":1,"name_company":4,"price":"et porro tempora","today":true,"price_daily":"et porro tempora","price_monthly":"et porro tempora","country_name":"et porro tempora"},"S4":{"market_cap":1,"name_company":5,"price":"laboriosam mollitia et enim quasi adipisci quia provident illum","today":false,"price_daily":"laboriosam mollitia et enim quasi adipisci quia provident illum","price_monthly":"laboriosam mollitia et enim quasi adipisci quia provident illum","country_name":"laboriosam mollitia et enim quasi adipisci quia provident illum"},"S2":{"market_cap":1,"name_company":3,"price":"fugiat veniam minus","today":false,"price_daily":"fugiat veniam minus","price_monthly":"fugiat veniam minus","country_name":"fugiat veniam minus"},"S5":{"market_cap":1,"name_company":6,"price":"qui ullam ratione quibusdam voluptatem quia omnis","today":false,"price_daily":"qui ullam ratione quibusdam voluptatem quia omnis","price_monthly":"qui ullam ratione quibusdam voluptatem quia omnis","country_name":"qui ullam ratione quibusdam voluptatem quia omnis"}};
-   //console.log('=>',dataSET);
-
-  /**  Usar AnyChart para los charts */
-  /*
+/**  Usar AnyChart para los charts */
+/*
   anychart.onDocumentReady(function () {
     // console.log(dataSET,'AQUI00000');
     var dataSet = anychart.data;
@@ -278,8 +282,8 @@ urlCDN = 'https://cdn.jsdelivr.net/gh/Hskndr/ApiTestFinance'
 
   });
   */
-  function createCharts (dataSET2){
-    /*
+function createCharts(dataSET2) {
+  /*
     let dataSET2 = {
       "1": {
         "id": 1,
@@ -429,14 +433,14 @@ urlCDN = 'https://cdn.jsdelivr.net/gh/Hskndr/ApiTestFinance'
         }
     };
     */
-    //console.log('=>2',dataSET2);
-    //console.log(Object.entries(dataSET2),'Object Entries 2');
+  //console.log('=>2',dataSET2);
+  //console.log(Object.entries(dataSET2),'Object Entries 2');
 
-    Object.entries(dataSET2).forEach(([key, value]) => {
-      createSeason(key, dataSET2);
-      //console.log('AQUI2222 OTRO',key,dataSET2);
-    }); 
-  };
+  Object.entries(dataSET2).forEach(([key, value]) => {
+    createSeason(key, dataSET2);
+    //console.log('AQUI2222 OTRO',key,dataSET2);
+  });
+}
 
 /** Copia de seguridad */
 /*
@@ -527,25 +531,40 @@ function createSeason(season, data) {
     .appendChild(document.createTextNode(data[season].name_company));
 
   // append a Price rating cell
-  newRow
-    .insertCell()
-    .appendChild(document.createTextNode(
-      new Intl.NumberFormat('en-US', { 
+  newRow.insertCell().appendChild(
+    document.createTextNode(
+      new Intl.NumberFormat("en-US", {
         notation: "compact",
-        compactDisplay: "short", 
-      }).format( data[season].market_cap) )
-      );
+        compactDisplay: "short",
+      }).format(data[season].market_cap)
+    )
+  );
 
   // append a Price rating cell
-  newRow.insertCell().appendChild(document.createTextNode(
-    new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD' }).format( data[season].price) )
+  newRow
+    .insertCell()
+    .appendChild(
+      document.createTextNode(
+        new Intl.NumberFormat("en-US", {
+          style: "currency",
+          currency: "USD",
+        }).format(data[season].price)
+      )
     );
 
   // append a Price rating cell
-  newRow.insertCell().appendChild(document.createTextNode(
-    new Intl.NumberFormat('en-US', { style: 'percent', signDisplay: "exceptZero" }).format( data[season].today) )
-  );
-  
+  newRow
+    .insertCell()
+    .appendChild(
+      document.createTextNode(
+        new Intl.NumberFormat("en-US", {
+          style: "percent",
+          signDisplay: "auto",
+          maximumSignificantDigits:3,
+        }).format(data[season].today/100)
+      )
+    );
+
   // create a line sparkline chart showing ratings
   var lineDiv = createSparkline(
     data[season],
